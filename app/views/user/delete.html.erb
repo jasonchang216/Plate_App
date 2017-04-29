@@ -1,0 +1,16 @@
+<div class = 'main'>
+  <h1>Delete <%= @user.username%></h1>
+</div>
+
+<div class = 'main'>
+<%= link_to("Back to users", {:action => 'index'}) %>
+</div>
+
+<div class = 'main'>
+  <%= form_for(:user, :url => {:action => 'destroy', :user_id => @user.id}) do |f| %>
+  <p>Are you sure you want to delete <%= @user.username %></p>
+  <div class = 'main'>
+    <%= submit_tag("Delete") %>
+  </div>
+  <% end %>
+</div>

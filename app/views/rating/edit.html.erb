@@ -1,0 +1,16 @@
+<div class = 'main'>
+<h1>Edit rating for <%= @restaurant.restaurant_name%></h1>
+</div>
+
+<div class = 'main'>
+  <%= form_for(:rating, :url => {:action => 'update', :rating_id => @rating.id}) do |f| %>
+  <%= render(:partial => 'formpartial', :locals => {:f => f}) %>
+  <div class = 'main'>
+    <%= submit_tag('Update rating') %>
+  </div>
+  <% end %>
+</div>
+
+<div class = 'main'>
+  <%= link_to("Back to ratings", {:action => 'index'}) %>
+</div>

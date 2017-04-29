@@ -1,0 +1,45 @@
+<div class = 'main'>
+  <h1>Restaurant List</h1>
+</div>
+
+<div class = 'main'>
+  <%= link_to("Back to home", {:controller => 'landing', :action => 'index'}) %>
+</div>
+
+<div class = 'main'>
+  <%= link_to("Logout", {:controller => 'access', :action => 'logout'}) %>
+</div>
+
+<div class = 'main'>
+  <%= link_to("Back to Restaurants", {:controller => 'restaurant', :action => 'index'}) %>
+</div>
+
+<div class = 'main'>
+  <%= link_to('New Rating', {:controller => 'rating', :action => 'new', :restaurant_id => @restaurant.id}) %>
+</div>
+
+<div class = 'main'>
+  <p>User ratings for <%= @restaurant.restaurant_name %></p>
+</div>
+
+<div class = 'main'>
+  <table>
+    <tr>
+      <th>User</th>
+      <th>Rating</th>
+      <th>Comments</th>
+      <th>Actions</th>
+    </th>
+    <% @ratings.each do |rating| %>
+    <tr>
+      <td><%= rating.user.username %></td>
+      <td><%= rating.restaurant_rating %></td>
+      <td><%= rating.restaurant_comment %></td>
+      <td>
+        <%= link_to('Edit', {:action => 'edit', :id => rating.id, :restaurant_id => rating.restaurant_id}) %>
+        <%= link_to('Delete', {:action => 'delete', :id => rating.id}) %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

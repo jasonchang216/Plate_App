@@ -1,0 +1,20 @@
+<div class = 'main'>
+  <h1>New User</h1>
+</div>
+
+<div class = 'main'>
+  <%= link_to("Back to Login", {:controller => 'access', :action => 'login'}) %>
+</div>
+
+<div class = 'main'>
+<p>Fill out this form to create a new user</p>
+</div>
+
+<div class = 'main'>
+  <%= form_for(:user, :url => {:action => 'create'}) do |f| %>
+  <%= render(:partial => 'formpartial', :locals => {:f => f}) %>
+  <div class = 'main'>
+    <%= submit_tag('Create User') %>
+  </div>
+  <% end %>
+</div>

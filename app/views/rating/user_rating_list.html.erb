@@ -1,0 +1,37 @@
+<div class = 'main'>
+  <h1>Restaurant's Rated</h1>
+</div>
+
+<div class = 'main'>
+  <%= link_to("Back to user list", {:controller => 'user', :action => 'index'}) %>
+</div>
+<div class = 'main'>
+  <%= link_to("Logout", {:controller => 'access', :action => 'logout'}) %>
+</div>
+
+<div class= 'main'>
+  <p>Ratings created by <%= @user.username%></p>
+</div>
+
+<div class = 'main'>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Restaurant</th>
+      <th>Rating</th>
+      <th>Actions</th>
+    </th>
+    <% @ratings.each do |rating| %>
+    <tr>
+      <td><%= rating.date_rated.to_time.strftime("%B, %d") %></td>
+      <td><%= rating.restaurant.restaurant_name %></td>
+      <td><%= rating.restaurant_rating %></td>
+      <td>
+        <%= link_to('Go to Restaurant', {:action => 'rating_list', :restaurant_id => rating.restaurant_id}) %>
+        <%= link_to('Edit', {:action => 'edit', :id => rating.id}) %>
+        <%= link_to('Delete', {:action => 'delete', :id => rating.id}) %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

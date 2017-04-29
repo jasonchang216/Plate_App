@@ -1,0 +1,30 @@
+<div class = 'main'>
+  <h1>Login</h1>
+</div>
+<div class = 'main'>
+  <%= link_to("Home", :controller => 'home', :action => 'index') %>
+</div>
+<div class = 'main'>
+  <%= link_to("New User", :controller => 'user', :action => 'new') %>
+</div>
+<div class = 'main'>
+  <p>Login with your username and password</p>
+</div>
+<div class = 'main'>
+  <%= form_tag(:action => 'attempt_login') do %>
+  <table>
+    <tr>
+      <td><%= label_tag(:username) %></td>
+      <td><%= text_field_tag(:username) %></td>
+    </tr>
+    <tr>
+      <td><%= label_tag(:password) %></td>
+      <td><%= password_field_tag(:password) %></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><%= submit_tag("Login") %></td>
+    </tr>
+  </table>
+  <% end %>
+</div>

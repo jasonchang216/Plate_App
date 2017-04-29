@@ -1,0 +1,16 @@
+<div class = 'main'>
+  <h1>Edit <%= @restaurant.restaurant_name%></h1>
+</div>
+
+<div class = 'main'>
+  <%= link_to("Back to restaurants", {:controller => 'restaurant', :action => 'index'}) %>
+</div>
+
+<div class = 'main'>
+  <%= form_for(:restaurant, :url => {:action => 'update', :restaurant_id => @restaurant.id}) do |f| %>
+  <%= render(:partial => 'formpartial', :locals => {:f => f}) %>
+  <div class = 'main'>
+    <%= submit_tag('Update restaurant') %>
+  </div>
+  <% end %>
+</div>

@@ -1,0 +1,21 @@
+<table summary = "Restaurant form field">
+  <tr>
+    <td><%= f.hidden_field(:user_id, :value => session[:user_id]) %></td>
+  </tr>
+  <tr>
+    <td><%= f.hidden_field(:restaurant_id, :value => @restaurant.id) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:date_rated, "Date") %></th>
+    <td><%= f.date_select(:date_rated) %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label(:restaurant_rating) %></th>
+    <td><%= f.text_field(:restaurant_rating) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:restaurant_comment) %></th>
+    <td><%= f.text_field(:restaurant_comment) %></td>
+  </tr>
+</table>

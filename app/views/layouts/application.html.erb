@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Plate Up!</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <div class = "flex_column">
+      <div class = "content">
+        <% if !flash[:notice].blank? %>
+          <div class = 'notice'>
+              <%= flash[:notice] %>
+          </div>
+        <% end %>
+        <div class = 'main'>
+          <table>
+            <tr>
+              <td><%= link_to('Home', {:controller => 'landing', :action => 'index'}) %></td>
+              <td><%= link_to('Users', {:controller => 'user', :action => 'index'}) %></td>
+              <td><%= link_to('Restaurants', {:controller => 'restaurant', :action =>'index'}) %></td>
+              <td><%= link_to('Ratings', {:controller => 'rating', :action => 'index'}) %></td>
+              <td><%= link_to('Logout', {:controller => 'access', :action => 'logout'}) %></td>
+            </tr>
+          </table>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
+</body>
+</html>

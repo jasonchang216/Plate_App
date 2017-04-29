@@ -1,0 +1,15 @@
+<div class = 'main'>
+  <h1>Delete this <%= @rating.restaurant_rating%> star rating for <%= @restaurant.restaurant_name%>?</h1>
+</div>
+
+<div class = 'main'>
+  <%= form_for(:rating, :url => {:action => 'destroy', :rating_id => @rating.id}) do |f| %>
+  <div class = 'main'>
+    <%= submit_tag("Yes, delete") %>
+  </div>
+  <% end %>
+</div>
+
+<div class = 'main'>
+  <%= link_to("No, go back to ratings", {:action => 'index'}) %>
+</div>

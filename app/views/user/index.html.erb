@@ -1,0 +1,28 @@
+<div class = 'main'>
+  <h1>User List</h1>
+</div>
+
+<div class = 'main'>
+<p>Below is a list of active users</p>
+</div>
+
+<div class = 'main'>
+  <table>
+    <tr>
+      <th class = 'column_header_left'>Username</th>
+      <th class = 'column_header_left'>Name</th>
+      <th class = 'column_header_left'>Email</th>
+      <th class = 'column_header_center' colspan="3">Actions</th>
+    </tr>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.username %></td>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= link_to('Edit', {:action => 'edit', :user_id => user.id}) %></td>
+      <td><%= link_to('Delete', {:action => 'delete', :user_id => user.id}) %></td>
+      <td><%= link_to('Restaurants', {:controller => 'rating', :action => 'user_rating_list', :user_id => user.id}) %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

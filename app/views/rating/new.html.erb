@@ -1,0 +1,16 @@
+<div class = 'main'>
+  <h1>New rating for <%= @restaurant.restaurant_name%></h1>
+</div>
+
+<div class = 'main'>
+  <%= form_for(:rating, :url => {:action => 'create'}) do |f| %>
+  <%= render(:partial => 'formpartial', :locals => {:f => f}) %>
+  <div class= 'main'>
+    <%= submit_tag('Create Rating') %>
+  </div>
+  <% end %>
+</div>
+
+<div class = 'main'>
+  <%= link_to("Back to Restaurants", {:controller => 'restaurant', :action => 'index'}) %>
+</div>

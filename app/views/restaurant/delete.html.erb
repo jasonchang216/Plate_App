@@ -1,0 +1,16 @@
+<div class = 'main'>
+  <h1>Delete <%= @restaurant.restaurant_name%></h1>
+</div>
+
+<div class = 'main'>
+  <%= link_to("Back to restaurants", {:action => 'index'}) %>
+</div>
+
+<div class = 'main'>
+  <%= form_for(:restaurant, :url => {:action => 'destroy', :restaurant_id => @restaurant.id}) do |f| %>
+  <p>Are you sure you want to delete <%= @restaurant.restaurant_name %></p>
+  <div class = 'main'>
+    <%= submit_tag("Delete") %>
+  </div>
+  <% end %>
+</div>

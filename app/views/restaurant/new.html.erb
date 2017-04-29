@@ -1,0 +1,20 @@
+<div class = 'main'>
+  <h1>New Restaurant</h1>
+</div>
+
+<div class = 'main'>
+  <%= link_to("Back to Restaurants", {:controller => 'restaurant', :action => 'index'}) %>
+</div>
+
+<div class = 'main'>
+  <p>Fill out this form to create a new restaurant</p>
+</div>
+
+<div class = 'main'>
+  <%= form_for(:restaurant, :url => {:action => 'create'}) do |f| %>
+  <%= render(:partial => 'formpartial', :locals => {:f => f}) %>
+  <div class= 'main'>
+    <%= submit_tag('Create Restaurant') %>
+  </div>
+  <% end %>
+</div>

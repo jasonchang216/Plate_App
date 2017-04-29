@@ -1,0 +1,16 @@
+<div class = 'main'>
+<h1>Edit <%= @user.username%></h1>
+</div>
+
+<div class = 'main'>
+  <%= link_to("Back to users", {:action => 'index'}) %>
+</div>
+
+<div class = 'main'>
+  <%= form_for(:user, :url => {:action => 'update', :user_id => @user.id}) do |f| %>
+  <%= render(:partial => 'formpartial', :locals => {:f => f}) %>
+  <div class = 'main'>
+    <%= submit_tag('Update user') %>
+  </div>
+  <% end %>
+</div>

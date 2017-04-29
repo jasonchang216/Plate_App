@@ -1,0 +1,25 @@
+<div class = 'main'>
+  <h1>Restaurant List</h1>
+</div>
+
+<div class = 'main'>
+  <%= link_to("New Restaurant", {:controller => 'restaurant', :action => 'new'}) %>
+</div>
+
+<div class = 'main'>
+  <table>
+    <tr>
+      <th class = 'column_header_left'>Restaurant</th>
+      <th class = 'column_header_center' colspan="4">Actions</th>
+    </th>
+    <% @restaurants.each do |restaurant| %>
+    <tr>
+      <td><%= restaurant.restaurant_name %></td>
+      <td><%= link_to('New Rating', {:controller => 'rating', :action => 'new', :restaurant_id => restaurant.id}) %></td>
+      <td><%= link_to('List Ratings', {:controller => 'rating', :action => 'rating_list', :restaurant_id => restaurant.id}) %></td>
+      <td><%= link_to('Edit', {:action => 'edit', :restaurant_id => restaurant.id}) %></td>
+      <td><%= link_to('Delete', {:action => 'delete', :restaurant_id => restaurant.id}) %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

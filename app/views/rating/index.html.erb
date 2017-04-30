@@ -19,10 +19,8 @@
       <td><%= rating.user.username %></td>
       <td class = 'column_center'><%= rating.restaurant_rating %></td>
       <td><%= rating.restaurant_comment %></td>
-      <td>
-        <%= link_to('Edit', {:action => 'edit', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %>
-        <%= link_to('Delete', {:action => 'delete', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %>
-      </td>
+      <td><%= link_to('Edit', {:action => 'edit', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %></td>
+      <td><%= link_to('Delete', {:action => 'delete', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %></td>
     </tr>
     <% end %>
   </table>

@@ -8,7 +8,7 @@ class RatingController < ApplicationController
     @ratings = Rating.sorted
   end
 
-  def rating_list
+  def restaurant_rating_list
     @restaurant = Restaurant.find(params[:restaurant_id])
     @ratings = @restaurant.ratings.sorted
   end

@@ -14,9 +14,9 @@
     </th>
     <% @ratings.each do |rating| %>
     <tr>
-      <td class = 'column_center'><%= rating.date_rated.to_time.strftime("%B, %d") %></td>
-      <td><%= rating.restaurant.restaurant_name %></td>
-      <td><%= rating.user.username %></td>
+      <td class = 'column_center'><%= rating.date_rated.to_time.strftime("%B %d") %></td>
+      <td><%= link_to(rating.restaurant.restaurant_name, {:action => 'restaurant_rating_list', :restaurant_id => rating.restaurant_id}) %></td>
+      <td><%= link_to(rating.user.username, {:action => 'user_rating_list', :user_id => rating.user_id}) %></td>
       <td class = 'column_center'><%= rating.restaurant_rating %></td>
       <td><%= rating.restaurant_comment %></td>
       <td><%= link_to('Edit', {:action => 'edit', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %></td>

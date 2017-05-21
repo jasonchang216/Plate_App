@@ -16,7 +16,7 @@
     </th>
     <% @ratings.each do |rating| %>
     <tr>
-      <td><%= rating.user.username %></td>
+      <td><%= link_to(rating.user.username, {:action => 'user_rating_list', :user_id => rating.user_id}) %></td>
       <td class = 'column_center'><%= rating.restaurant_rating %></td>
       <td><%= rating.restaurant_comment %></td>
       <td>

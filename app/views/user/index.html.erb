@@ -12,16 +12,15 @@
       <th class = 'column_header_left'>Username</th>
       <th class = 'column_header_left'>Name</th>
       <th class = 'column_header_left'>Email</th>
-      <th class = 'column_header_center' colspan="3">Actions</th>
+      <th class = 'column_header_center' colspan="2">Actions</th>
     </tr>
     <% @users.each do |user| %>
     <tr>
-      <td><%= user.username %></td>
+      <td><%= link_to(user.username, {:controller => 'rating', :action => 'user_rating_list', :user_id => user.id}) %></td>
       <td><%= user.name %></td>
       <td><%= user.email %></td>
       <td><%= link_to('Edit', {:action => 'edit', :user_id => user.id}) %></td>
       <td><%= link_to('Delete', {:action => 'delete', :user_id => user.id}) %></td>
-      <td><%= link_to('Restaurants', {:controller => 'rating', :action => 'user_rating_list', :user_id => user.id}) %></td>
     </tr>
     <% end %>
   </table>

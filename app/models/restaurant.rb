@@ -5,4 +5,8 @@ class Restaurant < ActiveRecord::Base
 
     scope :sorted, lambda { order("restaurant_name ASC")}
 
+    validates :restaurant_name, :presence => true,
+                                :length => { :maximum => 100 },
+                                :uniqueness => true
+
 end

@@ -17,6 +17,7 @@ class UserController < ApplicationController
     if @user.save
       redirect_to(:controller => 'access', :action => 'login')
     else
+      flash[:notice] = "Invalid sign up."
       render('new')
     end
   end

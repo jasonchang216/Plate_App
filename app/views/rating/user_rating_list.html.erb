@@ -19,8 +19,16 @@
       <td class = 'column_center'><%= rating.date_rated.to_time.strftime("%B %d") %></td>
       <td><%= link_to(rating.restaurant.restaurant_name, {:action => 'restaurant_rating_list', :restaurant_id => rating.restaurant_id}) %></td>
       <td class = 'column_center'><%= rating.restaurant_rating %></td>
-      <td><%= link_to('Edit', {:action => 'edit', :id => rating.id}) %></td>
-      <td><%= link_to('Delete', {:action => 'delete', :id => rating.id}) %></td>
+      <td>
+        <% if current_user == rating.user %>
+          <%= link_to('Edit', {:action => 'edit', :id => rating.id}) %>
+        <% end %>
+      </td>
+      <td>
+        <% if current_user == rating.user %>
+          <%= link_to('Delete', {:action => 'delete', :id => rating.id}) %>
+        <% end %>
+      </td>
     </tr>
     <% end %>
   </table>

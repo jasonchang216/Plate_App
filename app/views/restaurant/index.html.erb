@@ -16,8 +16,6 @@
     <tr>
       <td><%= link_to(restaurant.restaurant_name, {:controller => 'rating', :action => 'restaurant_rating_list', :restaurant_id => restaurant.id})  %></td>
       <td><%= link_to('New Rating', {:controller => 'rating', :action => 'new', :restaurant_id => restaurant.id}) %></td>
-      <td><%= link_to('Edit', {:action => 'edit', :restaurant_id => restaurant.id}) %></td>
-      <td><%= link_to('Delete', {:action => 'delete', :restaurant_id => restaurant.id}) %></td>
     </tr>
     <% end %>
   </table>

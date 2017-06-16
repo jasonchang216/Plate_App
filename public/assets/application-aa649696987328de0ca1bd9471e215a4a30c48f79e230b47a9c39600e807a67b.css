@@ -1,0 +1,99 @@
+html{
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+  left: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-image: url(background2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: inherit;
+}
+
+a {
+    color: #9bc4c9;
+    text-decoration: none;
+}
+
+h1 {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+td {
+  padding-right: 10px;
+}
+
+.column_header_center {
+  text-align: center;
+}
+
+.column_header_left {
+  text-align: left;
+}
+
+.column_center {
+  text-align: center;
+}
+
+.column_left {
+  text-align: left;
+}
+
+.notice {
+  height: 1.25em;
+  padding: 0.5em;
+  text-align: center;
+  background: #B6D491;
+  color: #4C2516;
+}
+
+.flex_column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: inherit;
+  width: 100%;
+}
+
+.content {
+  background: #1a1a1a;
+  color: #ffffff;
+  align-self: center;
+  width: 75%;
+  height: 50%;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: #1a1a1a;
+  color: #ffffff;
+  padding: 5px 5px 5px 5px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+

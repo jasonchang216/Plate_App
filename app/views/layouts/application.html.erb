@@ -6,27 +6,25 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<div class = "menu">Menu</div>
 <body>
-    <div class = "flex_column">
-      <div class = "content">
-        <% if !flash[:notice].blank? %>
-          <div class = 'notice'>
-              <%= flash[:notice] %>
-          </div>
-        <% end %>
-        <div class = 'main'>
-          <table>
-            <tr>
-              <td><%= link_to('Home', {:controller => 'landing', :action => 'index'}) %></td>
-              <td><%= link_to('Users', {:controller => 'user', :action => 'index'}) %></td>
-              <td><%= link_to('Restaurants', {:controller => 'restaurant', :action =>'index'}) %></td>
-              <td><%= link_to('Ratings', {:controller => 'rating', :action => 'index'}) %></td>
-              <td><%= link_to('Logout', {:controller => 'access', :action => 'logout'}) %></td>
-            </tr>
-          </table>
+  <div class = 'navigation'>
+    <div class = "menu-close"><img src="http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/uber/close.png"></div>
+    <div class = 'nav-link'><%= link_to('Home', {:controller => 'landing', :action => 'index'}) %></div>
+    <div class = 'nav-link'><%= link_to('Users', {:controller => 'user', :action => 'index'}) %></div>
+    <div class = 'nav-link'><%= link_to('Restaurants', {:controller => 'restaurant', :action =>'index'}) %></div>
+    <div class = 'nav-link'><%= link_to('Ratings', {:controller => 'rating', :action => 'index'}) %></div>
+    <div class = 'nav-link'><%= link_to('Logout', {:controller => 'access', :action => 'logout'}) %></div>
+  </div>
+  <div class = "flex_column">
+    <div class = "content">
+      <% if !flash[:notice].blank? %>
+        <div class = 'notice'>
+            <%= flash[:notice] %>
         </div>
-        <%= yield %>
-      </div>
+      <% end %>
+      <%= yield %>
     </div>
+  </div>
 </body>
 </html>

@@ -10,10 +10,7 @@ body {
   margin: 0;
   left: 0;
   font-family: 'Open Sans', sans-serif;
-  background-image: url(background2.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background: #D46A6A;
   height: inherit;
 }
 
@@ -65,7 +62,6 @@ td {
 }
 
 .content {
-  background: #1a1a1a;
   color: #ffffff;
   align-self: center;
   width: 75%;
@@ -77,7 +73,46 @@ td {
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  background: #1a1a1a;
+  background: #D46A6A;
   color: #ffffff;
   padding: 5px 5px 5px 5px;
+}
+
+.navigation {
+  background: #ffffff url('twinkle_twinkle.png') repeat left top;
+    /* Background pattern from subtlepatterns.com */
+    overflow: auto;
+  position: fixed;
+  display: inline;
+  height: 100%;
+  left: -200px;
+  width: 200px;
+  overflow: scroll;
+  margin-bottom: 100px;
+}
+
+.nav-link {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.menu {
+  color: #ffffff;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 26px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-top: 9px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.menu-close {
+  cursor: pointer;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-top: 0px;
+  text-align: center;
 }

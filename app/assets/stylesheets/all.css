@@ -10,10 +10,7 @@ body {
   margin: 0;
   left: 0;
   font-family: 'Open Sans', sans-serif;
-  background-image: url(background2.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background: #aa3939
   height: inherit;
 }
 
@@ -65,7 +62,7 @@ td {
 }
 
 .content {
-  background: #1a1a1a;
+  background: #aa3939;
   color: #ffffff;
   align-self: center;
   width: 75%;

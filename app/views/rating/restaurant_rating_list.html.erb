@@ -21,12 +21,12 @@
       <td><%= rating.restaurant_comment %></td>
       <td>
         <% if current_user == rating.user %>
-          <%= link_to('Edit', {:action => 'edit', :id => rating.id, :restaurant_id => rating.restaurant_id}) %>
+          <%= link_to('Edit', {:action => 'edit', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %>
         <% end %>
       </td>
       <td>
         <% if current_user == rating.user %>
-          <%= link_to('Delete', {:action => 'delete', :id => rating.id}) %>
+          <%= link_to('Delete', {:action => 'delete', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %>
         <% end %>
       </td>
     </tr>

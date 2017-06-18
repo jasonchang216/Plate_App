@@ -6,16 +6,18 @@
   <table>
       <% @ratings.each do |rating| %>
       <tr>
-        <td>
+        <td class = 'rating_row'>
           <table>
-            <tr>
-              <td><%= link_to(rating.user.username, {:action => 'user_rating_list', :user_id => rating.user_id}) %></td>
-              <td><%= rating.date_rated.to_time.strftime("%B %d") %></td>
+            <tr class>
+              <td class = 'rating_user'><%= link_to(rating.user.username, {:action => 'user_rating_list', :user_id => rating.user_id}) %></td>
+              <td class = 'rating_date'><%= rating.date_rated.to_time.strftime("%B %d") %></td>
             </tr>
-            <tr>
-              <td class = 'column_center'><%= rating.restaurant_rating %></td>
-              <td><%= link_to(rating.restaurant.restaurant_name, {:action => 'restaurant_rating_list', :restaurant_id => rating.restaurant_id}) %></td>
-              <td><%= rating.restaurant_comment %></td>
+          </table>
+          <table>
+            <tr class>
+              <td class = 'rating_rating'><%= rating.restaurant_rating %></td>
+              <td class = 'rating_restaurant'><%= link_to(rating.restaurant.restaurant_name, {:action => 'restaurant_rating_list', :restaurant_id => rating.restaurant_id}) %></td>
+              <td class = 'rating_comment'><%= rating.restaurant_comment %></td>
             <tr>
               <td>
                 <% if current_user == rating.user %>

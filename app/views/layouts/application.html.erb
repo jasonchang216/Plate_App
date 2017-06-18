@@ -16,13 +16,13 @@
     <div class = 'nav-link'><%= link_to('Ratings', {:controller => 'rating', :action => 'index'}) %></div>
     <div class = 'nav-link'><%= link_to('Logout', {:controller => 'access', :action => 'logout'}) %></div>
   </div>
+  <% if !flash[:notice].blank? %>
+    <div class = 'notice'>
+        <%= flash[:notice] %>
+    </div>
+  <% end %>
   <div class = "flex_column">
     <div class = "content">
-      <% if !flash[:notice].blank? %>
-        <div class = 'notice'>
-            <%= flash[:notice] %>
-        </div>
-      <% end %>
       <%= yield %>
     </div>
   </div>

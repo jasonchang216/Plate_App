@@ -10,10 +10,9 @@
 <body>
   <div class = 'navigation'>
     <div class = "menu-close"><img src="http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/uber/close.png"></div>
-    <div class = 'nav-link'><%= link_to('Home', {:controller => 'landing', :action => 'index'}) %></div>
+    <div class = 'nav-link'><%= link_to('Ratings', {:controller => 'rating', :action => 'index'}) %></div>
     <div class = 'nav-link'><%= link_to('Users', {:controller => 'user', :action => 'index'}) %></div>
     <div class = 'nav-link'><%= link_to('Restaurants', {:controller => 'restaurant', :action =>'index'}) %></div>
-    <div class = 'nav-link'><%= link_to('Ratings', {:controller => 'rating', :action => 'index'}) %></div>
     <div class = 'nav-link'><%= link_to('Logout', {:controller => 'access', :action => 'logout'}) %></div>
   </div>
   <% if !flash[:notice].blank? %>

@@ -8,13 +8,13 @@
       <tr>
         <td class = 'rating_row'>
           <table>
-            <tr class>
+            <tr>
               <td class = 'rating_user'><%= link_to(rating.user.username, {:action => 'user_rating_list', :user_id => rating.user_id}) %></td>
               <td class = 'rating_date'><%= rating.date_rated.to_time.strftime("%B %d") %></td>
             </tr>
           </table>
           <table>
-            <tr class>
+            <tr>
               <td class = 'rating_rating'><%= rating.restaurant_rating %></td>
               <td class = 'rating_restaurant'><%= link_to(rating.restaurant.restaurant_name, {:action => 'restaurant_rating_list', :restaurant_id => rating.restaurant_id}) %></td>
               <td class = 'rating_comment'><%= rating.restaurant_comment %></td>

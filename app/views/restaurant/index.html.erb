@@ -3,20 +3,21 @@
 </div>
 
 <div class = 'main'>
-  <%= link_to("New Restaurant", {:controller => 'restaurant', :action => 'new'}) %>
+  <h3><%= link_to("New Restaurant", {:controller => 'restaurant', :action => 'new'}) %></h3>
 </div>
 
 <div class = 'main'>
   <table>
-    <tr>
-      <th class = 'column_header_left'>Restaurant</th>
-      <th class = 'column_header_center' colspan="3">Actions</th>
-    </th>
     <% @restaurants.each do |restaurant| %>
-    <tr>
-      <td><%= link_to(restaurant.restaurant_name, {:controller => 'rating', :action => 'restaurant_rating_list', :restaurant_id => restaurant.id})  %></td>
-      <td><%= link_to('New Rating', {:controller => 'rating', :action => 'new', :restaurant_id => restaurant.id}) %></td>
-    </tr>
+      <td class = 'rating_row'>
+        <tr>
+          <td class = 'rating_rating'><%= restaurant.ratings.average('restaurant_rating') %></td>
+          <td class = 'rating_restaurant'><%= link_to(restaurant.restaurant_name, {:controller => 'rating', :action => 'restaurant_rating_list', :restaurant_id => restaurant.id})  %></td>
+        </tr>
+        <tr>
+          <td colspan = '2'><%= link_to('New Rating', {:controller => 'rating', :action => 'new', :restaurant_id => restaurant.id}) %></td>
+        </tr>
+      </td>
     <% end %>
   </table>
 </div>

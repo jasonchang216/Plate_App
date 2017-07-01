@@ -1,0 +1,210 @@
+html{
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+  left: 0;
+  font-family: 'Open Sans', sans-serif;
+  background: #D46A6A;
+  height: inherit;
+}
+
+div {
+    margin: 0px 0px 0px 0px;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+h1 {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 76px;
+    margin: 0px 0px 0px 0px;
+}
+
+td {
+  padding-right: 10px;
+}
+
+.column_header_center {
+  text-align: center;
+}
+
+.column_header_left {
+  text-align: left;
+}
+
+.column_center {
+  text-align: center;
+}
+
+.column_left {
+  text-align: left;
+}
+
+.notice {
+  height: 1.25em;
+  padding: 0.5em;
+  text-align: center;
+  background: #B6D491;
+  color: #4C2516;
+}
+
+.flex_column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: inherit;
+}
+
+.content {
+  color: #ffffff;
+  align-self: center;
+  height: 90%;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  flex-wrap: wrap;
+  background: #D46A6A;
+  color: #ffffff;
+  padding: 0px, 0px, 0px, 0px;
+  margin: 0px, 0px, 0px, 0px;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  flex-wrap: wrap;
+  background: #D46A6A;
+  color: #ffffff;
+  padding: 5px 5px 5px 5px;
+}
+
+.navigation {
+  background: #ffffff url('twinkle_twinkle.png') repeat left top;
+    /* Background pattern from subtlepatterns.com */
+    overflow: auto;
+  position: fixed;
+  display: inline;
+  height: 100%;
+  left: -200px;
+  width: 200px;
+  overflow: scroll;
+  margin-bottom: 100px;
+}
+
+.nav-link {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.menu {
+  color: #ffffff;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 26px;
+  left: 10px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-top: 9px;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: fixed;
+  align-self: flex-start;
+}
+
+.menu-close {
+  cursor: pointer;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-top: 0px;
+  text-align: center;
+}
+
+.rating_table {
+}
+
+.rating_row {
+  padding-bottom: 50px;
+}
+
+.rating_user {
+  padding-top: 10px;
+  padding-bottom:10px;
+  width: 50%;
+  font-family: 'Gotham', sans-serif;
+  font-size: 18px;
+  text-align: left;
+  vertical-align: bottom;
+}
+
+.rating_date {
+  padding-top: 10px;
+  padding-bottom:10px;
+  width: 50%;
+  font-family: 'Gotham', sans-serif;
+  font-size: 13px;
+  vertical-align: bottom;
+}
+
+.rating_rating {
+  background-color: #6f6f6f;
+  padding-top: 10px;
+  padding-bottom:10px;
+  width: 60px;
+  font-family: 'Gotham', sans-serif;
+  font-size: 52px;
+  text-align: center;
+}
+
+.rating_restaurant {
+  padding-top: 10px;
+  padding-bottom:10px;
+  width: 200px;
+  font-family: 'Gotham', sans-serif;
+  font-size: 40px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.rating_comment {
+  padding-top: 10px;
+  padding-bottom:10px;
+  width: 300px;
+  font-family: 'Gotham', sans-serif;
+  font-size: 26px;
+  text-align: left;
+  vertical-align: middle;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+

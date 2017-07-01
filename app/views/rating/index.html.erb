@@ -1,38 +1,38 @@
 <div class = 'main'>
-  <h1>Rating List</h1>
+  <h1>The Recently Reviewed</h1>
 </div>
 
 <div class = 'main'>
   <table>
-      <% @ratings.each do |rating| %>
+    <% @ratings.each do |rating| %>
+    <td class = 'rating_row'>
       <tr>
-        <td class = 'rating_row'>
-          <table>
-            <tr>
-              <td class = 'rating_user'><%= link_to(rating.user.username, {:action => 'user_rating_list', :user_id => rating.user_id}) %></td>
-              <td class = 'rating_date'><%= rating.date_rated.to_time.strftime("%B %d") %></td>
-            </tr>
-          </table>
-          <table>
-            <tr>
-              <td class = 'rating_rating'><%= rating.restaurant_rating %></td>
-              <td class = 'rating_restaurant'><%= link_to(rating.restaurant.restaurant_name, {:action => 'restaurant_rating_list', :restaurant_id => rating.restaurant_id}) %></td>
-              <td class = 'rating_comment'><%= rating.restaurant_comment %></td>
-            <tr>
-              <td>
-                <% if current_user == rating.user %>
-                  <%= link_to('Edit', {:action => 'edit', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %>
-                <% end %>
-              </td>
-              <td>
-                <% if current_user == rating.user %>
-                  <%= link_to('Delete', {:action => 'delete', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %>
-                <% end %>
-              </td>
-            </tr>
-          </table>
+        <td class = 'rating_user'><%= link_to(rating.user.username, {:action => 'user_rating_list', :user_id => rating.user_id}) %></td>
+        <td class = 'rating_date'><%= rating.date_rated.to_time.strftime("%B %d") %></td>
+      </tr>
+      <tr>
+        <td class = 'rating_rating' rowspan = '2'><%= rating.restaurant_rating %></td>
+        <td class = 'rating_restaurant'><%= link_to(rating.restaurant.restaurant_name, {:action => 'restaurant_rating_list', :restaurant_id => rating.restaurant_id}) %></td>
+      </tr>
+      <tr>
+        <td><%= rating.restaurant_comment %></td>
+      </tr>
+      <tr>
+        <td><%= rating.restaurant.city %></td>
+        <td><%= rating.restaurant.neighborhood %></td>
+      <tr>
+        <td>
+          <% if current_user == rating.user %>
+            <%= link_to('Edit', {:action => 'edit', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %>
+          <% end %>
+        </td>
+        <td>
+          <% if current_user == rating.user %>
+            <%= link_to('Delete', {:action => 'delete', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %>
+          <% end %>
         </td>
       </tr>
-      <% end %>
+    </td>
+    <% end %>
   </table>
 </div>

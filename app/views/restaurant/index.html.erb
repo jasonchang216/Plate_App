@@ -11,8 +11,8 @@
     <% @restaurants.each do |restaurant| %>
       <td class = 'rating_row'>
         <tr>
-          <th class = 'rating_rating' rowspan="2"><%= restaurant.ratings.average('restaurant_rating') %></th>
-          <th class = 'rating_restaurant' colspan="2"><%= link_to(restaurant.restaurant_name, {:controller => 'rating', :action => 'restaurant_rating_list', :restaurant_id => restaurant.id})%></th>
+          <td class = 'rating_rating' rowspan="2"><%= restaurant.ratings.average('restaurant_rating') %></th>
+          <td class = 'rating_restaurant' colspan="2"><%= link_to(restaurant.restaurant_name, {:controller => 'rating', :action => 'restaurant_rating_list', :restaurant_id => restaurant.id})%></th>
         </tr>
         <tr>
           <td><%= restaurant.city %></td>

@@ -14,6 +14,10 @@ body {
   height: inherit;
 }
 
+div {
+    margin: 0px 0px 0px 0px;
+}
+
 a {
     color: #ffffff;
     text-decoration: none;
@@ -23,8 +27,7 @@ h1 {
     color: #ffffff;
     text-decoration: none;
     font-size: 76px;
-    padding: 0px, 0px, 0px, 0px;
-    margin: 0px, 0px, 0px, 0px;
+    margin: 0px 0px 0px 0px;
 }
 
 td {
@@ -61,13 +64,12 @@ td {
   justify-content: center;
   align-content: center;
   height: inherit;
-
 }
 
 .content {
   color: #ffffff;
   align-self: center;
-  height: 50%;
+  height: 90%;
 }
 
 .header {

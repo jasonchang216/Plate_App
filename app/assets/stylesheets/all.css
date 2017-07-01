@@ -22,7 +22,9 @@ a {
 h1 {
     color: #ffffff;
     text-decoration: none;
-    font-size: 100px;
+    font-size: 76px;
+    padding: 0px, 0px, 0px, 0px;
+    margin: 0px, 0px, 0px, 0px;
 }
 
 td {
@@ -65,8 +67,19 @@ td {
 .content {
   color: #ffffff;
   align-self: center;
-
   height: 50%;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  flex-wrap: wrap;
+  background: #D46A6A;
+  color: #ffffff;
+  padding: 0px, 0px, 0px, 0px;
+  margin: 0px, 0px, 0px, 0px;
 }
 
 .main {

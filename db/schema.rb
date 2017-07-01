@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170423165523) do
+ActiveRecord::Schema.define(version: 20170701183431) do
 
   create_table "ratings", force: :cascade do |t|
     t.integer  "restaurant_rating",  limit: 4
@@ -29,8 +29,10 @@ ActiveRecord::Schema.define(version: 20170423165523) do
 
   create_table "restaurants", force: :cascade do |t|
     t.string   "restaurant_name", limit: 25
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "city",            limit: 30
+    t.string   "neighborhood",    limit: 100
   end
 
   add_index "restaurants", ["restaurant_name"], name: "index_restaurants_on_restaurant_name", using: :btree

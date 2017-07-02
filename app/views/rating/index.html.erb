@@ -16,11 +16,10 @@
             <td class = 'rating_restaurant' colspan = '2'><%= link_to(rating.restaurant.restaurant_name, {:action => 'restaurant_rating_list', :restaurant_id => rating.restaurant_id}) %></td>
           </tr>
           <tr>
-
-            <td colspan = '2'><%= rating.restaurant_comment %></td>
+            <td colspan = '2'><%= rating.restaurant.city %> - <%= rating.restaurant.neighborhood %></td>
           </tr>
           <tr>
-            <td colspan = '3'><%= rating.restaurant.city %> - <%= rating.restaurant.neighborhood %></td>
+            <td colspan = '3'><%= rating.restaurant_comment %></td>
           </tr>
           <% if current_user == rating.user %>
             <tr>

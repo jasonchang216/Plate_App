@@ -7,29 +7,34 @@
 </div>
 
 <div class = 'main'>
-  <table>
+  <p><%= link_to('Add your review!', {:controller => 'rating', :action => 'new', :restaurant_id => @restaurant.id}) %></p>
+</div>
+
+<div class = 'main_rating'>
+  <table class = 'rating_table'>
     <% @ratings.each do |rating| %>
-      <td class = 'rating_row'>
-        <tr>
-          <td class = 'rating_user' colspan = '2'><%= link_to(rating.user.username, {:action => 'user_rating_list', :user_id => rating.user_id}) %></th>
-        </tr>
-        <tr>
-          <td class = 'rating_rating'><%= rating.restaurant_rating %></td>
-          <td><%= rating.restaurant_comment %></td>
-        </tr>
-        <tr>
-          <td>
-            <% if current_user == rating.user %>
-              <%= link_to('Edit', {:action => 'edit', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %>
-            <% end %>
-          </td>
-          <td>
-            <% if current_user == rating.user %>
-              <%= link_to('Delete', {:action => 'delete', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %>
-            <% end %>
-          </td>
-        </tr>
+    <tr>
+      <td>
+        <table class = 'rating_row'>
+          <tr>
+            <td class = 'rating_user' colspan = '3'><%= link_to(rating.user.username, {:action => 'user_rating_list', :user_id => rating.user_id}) %> - <%= rating.date_rated.to_time.strftime("%B %d") %></td>
+          </tr>
+          <tr>
+            <td class = 'rating_rating' rowspan = '1'><%= rating.restaurant_rating %></td>
+            <td colspan = '2'><%= rating.restaurant_comment %></td>
+          </tr>
+          <tr>
+            <td colspan = '3'><%= rating.restaurant.city %> - <%= rating.restaurant.neighborhood %></td>
+          </tr>
+          <% if current_user == rating.user %>
+            <tr>
+              <td><%= link_to('Edit', {:action => 'edit', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %></td>
+              <td><%= link_to('Delete', {:action => 'delete', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %></td>
+            </tr>
+          <% end %>
+        </table>
       </td>
+    </tr>
     <% end %>
   </table>
 </div>

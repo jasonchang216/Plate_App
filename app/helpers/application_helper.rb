@@ -9,7 +9,7 @@ module ApplicationHelper
     if value.nil?
       output = ''
     else (1..5).include?(value.floor)
-      value.floor.times { output += image_tag('/star-on.png')}
+      value.floor.times { output += image_tag('star-on.png')}
     end
     output.html_safe
   end

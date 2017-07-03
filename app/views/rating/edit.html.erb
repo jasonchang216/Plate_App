@@ -5,6 +5,7 @@
 <div class = 'main'>
   <%= form_for(:rating, :url => {:action => 'update', :rating_id => @rating.id}) do |f| %>
   <%= render(:partial => 'formpartial', :locals => {:f => f}) %>
+  <br>
   <div class = 'main'>
     <%= submit_tag('Update rating') %>
   </div>

@@ -6,16 +6,33 @@
     <td><%= f.hidden_field(:restaurant_id, :value => @restaurant.id) %></td>
   </tr>
   <tr>
-    <th><%= f.label(:date_rated, "Date") %></th>
+    <td class = 'field_label'><%= f.label(:date_rated, "Date") %></td>
     <td><%= f.date_select(:date_rated) %></td>
   </tr>
 
   <tr>
-    <th><%= f.label(:restaurant_rating) %></th>
-    <td><%= f.text_field(:restaurant_rating) %></td>
+    <td class = 'field_label'><%= f.label(:restaurant_rating) %></td>
+    <td>
+    <table>
+      <tr>
+        <td><%= f.label :restaurant_rating, "1", :value => 1 %></td>
+        <td><%= f.label :restaurant_rating, "2", :value => 2 %></td>
+        <td><%= f.label :restaurant_rating, "3", :value => 3 %></td>
+        <td><%= f.label :restaurant_rating, "4", :value => 4 %></td>
+        <td><%= f.label :restaurant_rating, "5", :value => 5 %></td>
+      </tr>
+      <tr>
+        <td><%= f.radio_button :restaurant_rating, 1 %></td>
+        <td><%= f.radio_button :restaurant_rating, 2 %></td>
+        <td><%= f.radio_button :restaurant_rating, 3 %></td>
+        <td><%= f.radio_button :restaurant_rating, 4 %></td>
+        <td><%= f.radio_button :restaurant_rating, 5 %></td>
+      </tr>
+    </table>
+    </td>
   </tr>
   <tr>
-    <th><%= f.label(:restaurant_comment) %></th>
-    <td><%= f.text_field(:restaurant_comment) %></td>
+    <td class = 'field_label'><%= f.label(:restaurant_comment) %></td>
+    <td><%= f.text_area :restaurant_comment, cols: '50', rows: '10' %></td>
   </tr>
 </table>

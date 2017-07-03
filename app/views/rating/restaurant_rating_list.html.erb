@@ -1,9 +1,12 @@
 <div class = 'main'>
   <h1>Ratings for <%= @restaurant.restaurant_name %></h1>
 </div>
+<div class = 'main'>
+  <p><%= @restaurant.city %> - <%= @restaurant.neighborhood %></p>
+</div>
 
 <div class = 'main'>
-  <p>Average rating: <%= @restaurant.ratings.average('restaurant_rating') %></p>
+  <p>Average rating: <%= render_stars(@restaurant.ratings.average('restaurant_rating'))%></p>
 </div>
 
 <div class = 'main'>
@@ -17,19 +20,17 @@
       <td>
         <table class = 'rating_row'>
           <tr>
-            <td class = 'rating_user' colspan = '3'><%= link_to(rating.user.username, {:action => 'user_rating_list', :user_id => rating.user_id}) %> - <%= rating.date_rated.to_time.strftime("%B %d") %></td>
+            <td class = 'rating_user'><%= link_to(rating.user.username, {:action => 'user_rating_list', :user_id => rating.user_id}) %> - <%= rating.date_rated.to_time.strftime("%B %d") %></td>
           </tr>
           <tr>
-            <td class = 'rating_rating' rowspan = '1'><%= rating.restaurant_rating %></td>
-            <td colspan = '2'><%= rating.restaurant_comment %></td>
+            <td><%= render_stars(rating.restaurant_rating) %></td>
           </tr>
           <tr>
-            <td colspan = '3'><%= rating.restaurant.city %> - <%= rating.restaurant.neighborhood %></td>
+            <td><%= rating.restaurant_comment %></td>
           </tr>
           <% if current_user == rating.user %>
             <tr>
-              <td><%= link_to('Edit', {:action => 'edit', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %></td>
-              <td><%= link_to('Delete', {:action => 'delete', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %></td>
+              <td><%= link_to('Edit', {:action => 'edit', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %> - <%= link_to('Delete', {:action => 'delete', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %></td>
             </tr>
           <% end %>
         </table>

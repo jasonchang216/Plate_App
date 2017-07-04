@@ -9,4 +9,8 @@ class Restaurant < ActiveRecord::Base
                                 :length => { :maximum => 100 },
                                 :uniqueness => true
 
+    def self.search(search)
+      where("neighborhood LIKE ? OR restaurant_name LIKE? OR city LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
+    end
+
 end

@@ -1,5 +1,5 @@
 <div class = 'main'>
-  <h1>Ratings for <%= @restaurant.restaurant_name %></h1>
+  <h2>Ratings for <%= @restaurant.restaurant_name %></h2>
 </div>
 <div class = 'main'>
   <p><%= @restaurant.city %> - <%= @restaurant.neighborhood %></p>
@@ -13,7 +13,7 @@
   <p><%= link_to('Add your review!', {:controller => 'rating', :action => 'new', :restaurant_id => @restaurant.id}) %></p>
 </div>
 
-<div class = 'main_rating'>
+<div class = 'data_table'>
   <table class = 'rating_table'>
     <% @ratings.each do |rating| %>
     <tr>

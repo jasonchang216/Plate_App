@@ -1,6 +1,9 @@
 html{
   height: 100%;
   width: 100%;
+  background-image: url('background3.jpg');
+  background-repeat: repeat;
+  background-position: center;
 }
 
 body {
@@ -10,7 +13,7 @@ body {
   margin: 0;
   left: 0;
   font-family: 'Open Sans', sans-serif;
-  background: #D46A6A;
+
   height: inherit;
 }
 
@@ -18,16 +21,31 @@ div {
     margin: 0px 0px 0px 0px;
 }
 
+
 a {
-    color: #ffffff;
-    text-decoration: none;
+  color: #1a1a1a;
+  text-decoration: none;
 }
 
 h1 {
-    color: #ffffff;
+    color: #1a1a1a;
     text-decoration: none;
     font-size: 76px;
     margin: 0px 0px 0px 0px;
+}
+
+h2 {
+  color: #1a1a1a;
+  text-decoration: none;
+  font-size: 56px;
+  margin: 0px 0px 0px 0px;
+}
+
+h2 {
+  color: #1a1a1a;
+  text-decoration: none;
+  font-size: 36px;
+  margin: 0px 0px 0px 0px;
 }
 
 td {
@@ -37,6 +55,31 @@ td {
   border: 1px 1px 1px 1px;
   border-style: solid;
   */
+}
+
+.footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: right;
+}
+
+.footer-name {
+  color: #ffffff;
+  background-color: #1a1a1a;
+  opacity: .75;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 26px;
+  width: 100px;
+  padding-bottom: 1px;
+  padding-left: 10px;
+  padding-top: 1px;
+  padding-right: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  float: right;
 }
 
 .column_header_center {
@@ -56,11 +99,25 @@ td {
 }
 
 .notice {
-  height: 1.25em;
-  padding: 0.5em;
+  position: fixed;
+  height: 50px;
+  padding: 1px;
+  bottom: -70px;
   text-align: center;
   background: #B6D491;
   color: #4C2516;
+  vertical-align: middle;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.notice h2 {
+  color: #1a1a1a;
+  text-decoration: none;
+  font-size: 36px;
+  margin: 0px 0px 0px 0px;
+
 }
 
 .flex_column {
@@ -72,7 +129,7 @@ td {
 }
 
 .content {
-  color: #ffffff;
+  color: #1a1a1a;
   align-self: center;
   height: 90%;
 }
@@ -82,8 +139,8 @@ td {
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  background: #D46A6A;
-  color: #ffffff;
+  background: #ffffff;
+  color: #1a1a1a;
   padding: 0px, 0px, 0px, 0px;
   margin: 0px, 0px, 0px, 0px;
 }
@@ -93,19 +150,23 @@ td {
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  background: #D46A6A;
-  color: #ffffff;
+  /*background: #ffffff;
+  opacity: 0.4;*/
+  color: #1a1a1a;
   padding: 5px 5px 5px 5px;
 }
 
-.main_rating {
+.data_table {
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  background: #D46A6A;
-  color: #ffffff;
+  background: #ffffff;
+  opacity: 0.7;
+  color: #1a1a1a;
   padding: 5px 5px 5px 5px;
+  height: 85%;
+  overflow: scroll;
   /*border-width: medium;
   border-color: #ffffff;
   border: 1px 1px 1px 1px;
@@ -117,11 +178,12 @@ td {
   background: #ffffff url('twinkle_twinkle.png') repeat left top;
     /* Background pattern from subtlepatterns.com */
     overflow: auto;
+  opacity: 0.8;
   position: fixed;
   display: inline;
   height: 100%;
-  left: -200px;
-  width: 200px;
+  left: -250px;
+  width: 250px;
   overflow: scroll;
   margin-bottom: 100px;
 }
@@ -132,15 +194,25 @@ td {
   text-align: center;
 }
 
+
+.nav-link a {
+    color: #ffffff;
+    font-size: 26px;
+    text-decoration: none;
+}
+
 .menu {
   color: #ffffff;
+  background-color: #1a1a1a;
+  opacity: .75;
   cursor: pointer;
   font-family: 'Open Sans', sans-serif;
   font-size: 26px;
-  left: 10px;
-  padding-bottom: 5px;
+  left: 0px;
+  padding-bottom: 10px;
   padding-left: 10px;
-  padding-top: 9px;
+  padding-top: 10px;
+  padding-right: 15px;
   text-decoration: none;
   text-transform: uppercase;
   position: fixed;
@@ -155,8 +227,27 @@ td {
   text-align: center;
 }
 
+.login-button {
+  background-color: #1a1a1a;
+  opacity: .75;
+}
+
+.login-button a {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 26px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+  padding-bottom: 0px;
+  padding-left: 20px;
+  padding-top: 0px;
+  padding-right: 20px;
+}
+
 .rating_table {
-  width: 50%;
+  width: 90%;
+  background: rgba(255, 255, 255, 1);
+  color: #000000;
 }
 
 .rating_row {
@@ -176,7 +267,6 @@ td {
 .rating_date {
   padding-top: 10px;
   padding-bottom:10px;
-
   font-family: 'Gotham', sans-serif;
   font-size: 13px;
   vertical-align: bottom;
@@ -198,7 +288,6 @@ td {
 .rating_restaurant {
   padding-top: 10px;
   padding-bottom:10px;
-  width: 200px;
   font-family: 'Gotham', sans-serif;
   font-size: 40px;
   text-align: left;
@@ -208,7 +297,6 @@ td {
 .rating_comment {
   padding-top: 10px;
   padding-bottom:10px;
-  width: 300px;
   font-family: 'Gotham', sans-serif;
   font-size: 26px;
   text-align: left;

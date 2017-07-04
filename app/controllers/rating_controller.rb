@@ -27,8 +27,10 @@ class RatingController < ApplicationController
     @rating = Rating.new(rating_params)
     if @rating.save
       redirect_to(:action => 'index')
+      flash[:notice] = "Your rating has been added!"
     else
       render('new')
+      flash[:notice] = "Uh-oh something went wrong..."
     end
   end
 
@@ -41,8 +43,10 @@ class RatingController < ApplicationController
     @rating = Rating.find(params[:rating_id])
     if @rating.update_attributes(rating_params)
       redirect_to(:action => 'index')
+      flash[:notice] = "Your rating has been updated!"
     else
       render('edit')
+      flash[:notice] = "Uh-oh something went wrong..."
     end
   end
 

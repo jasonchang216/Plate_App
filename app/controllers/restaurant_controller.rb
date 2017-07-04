@@ -16,8 +16,10 @@ class RestaurantController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
       redirect_to(:action => 'index')
+      flash[:notice] = "Restaurant added!"
     else
       render('new')
+      flash[:notice] = "Uh-oh something went wrong..."
     end
   end
 
@@ -29,8 +31,10 @@ class RestaurantController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     if @restaurant.update_attributes(restaurant_params)
       redirect_to(:action => 'index')
+      flash[:notice] = "Restaurant updated!"
     else
       render('edit')
+      flash[:notice] = "Uh-oh something went wrong..."
     end
   end
 
@@ -41,6 +45,7 @@ class RestaurantController < ApplicationController
   def destroy
     Restaurant.find(params[:restaurant_id]).destroy
     redirect_to(:action => 'index')
+    flash[:notice] = "Restaurant deleted!"
   end
 
   private

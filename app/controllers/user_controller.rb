@@ -16,6 +16,7 @@ class UserController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       redirect_to(:controller => 'access', :action => 'login')
+      flash[:notice] = "Profile successfully created!"
     else
       flash[:notice] = "Invalid sign up."
       render('new')

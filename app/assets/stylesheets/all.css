@@ -156,6 +156,17 @@ td {
   padding: 5px 5px 5px 5px;
 }
 
+.small_main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: #1a1a1a;
+  background: #ffffff;
+  opacity: 0.7;
+  padding: 0px, 0px, 0px, 0px;
+}
+
 .data_table {
   display: flex;
   flex-direction: row;
@@ -164,7 +175,7 @@ td {
   background: #ffffff;
   opacity: 0.7;
   color: #1a1a1a;
-  padding: 5px 5px 5px 5px;
+  padding: 0px 5px 5px 5px;
   height: 85%;
   overflow: scroll;
   /*border-width: medium;
@@ -251,13 +262,13 @@ td {
 }
 
 .rating_row {
-  padding-bottom: 40px;
+  padding-top: 0px;
+  padding-bottom: 30px;
 }
 
 .rating_user {
   padding-top: 10px;
   padding-bottom:10px;
-
   font-family: 'Gotham', sans-serif;
   font-size: 18px;
   text-align: left;
@@ -286,8 +297,8 @@ td {
 }
 
 .rating_restaurant {
-  padding-top: 10px;
-  padding-bottom:10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   font-family: 'Gotham', sans-serif;
   font-size: 40px;
   text-align: left;

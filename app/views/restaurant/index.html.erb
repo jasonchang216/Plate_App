@@ -6,24 +6,46 @@
   <h3><%= link_to("New Restaurant", {:controller => 'restaurant', :action => 'new'}) %></h3>
 </div>
 
-<div class = 'data_table'>
-  <table>
-    <% @restaurants.each do |restaurant| %>
-      <td class = 'rating_row'>
-        <tr>
-          <td colspand = '2'><%= render_stars(restaurant.ratings.average('restaurant_rating')) %></td>
-        </tr>
-        <tr>
-          <td class = 'rating_restaurant' rowspan = '2'><%= link_to(restaurant.restaurant_name, {:controller => 'rating', :action => 'restaurant_rating_list', :restaurant_id => restaurant.id})%></th>
-          <td><%= restaurant.city %></td>
-        </tr>
-        <tr>
-          <td><%= restaurant.neighborhood %></td>
-        </tr>
-        <tr>
-          <td colspan="2"><%= link_to('New Rating', {:controller => 'rating', :action => 'new', :restaurant_id => restaurant.id}) %></td>
-        </tr>
-      </td>
-    <% end %>
-  </table>
+<div class = 'small_main'>
+  <p>Find a restaurant. Enter the name, city, or neighborhood!</p>
 </div>
+
+<div class = 'small_main'>
+    <%= form_tag(@restaurants_path, :method => 'get', id: 'search-form') do %>
+      <%= text_field_tag :search, params[:search], placeholder: 'Search Restaurant Name' %>
+      <%= submit_tag 'Search' %>
+    <% end %>
+</div>
+
+<% if @restaurants.present? %>
+  <div class = 'small_main'>
+    <p>Your search for <%= params[:search] %>:</p>
+  </div>
+  <div class = 'data_table'>
+    <table>
+      <% @restaurants.each do |restaurant| %>
+        <td class = 'rating_row'>
+          <tr>
+            <td colspan = '2'><%= render_stars(restaurant.ratings.average('restaurant_rating')) %></td>
+          </tr>
+          <tr>
+            <td class = 'rating_restaurant' rowspan = '2'><%= link_to(restaurant.restaurant_name, {:controller => 'rating', :action => 'restaurant_rating_list', :restaurant_id => restaurant.id})%></th>
+            <td><%= restaurant.city %></td>
+          </tr>
+          <tr>
+            <td><%= restaurant.neighborhood %></td>
+          </tr>
+          <tr>
+            <td colspan="2"><%= link_to('New Rating', {:controller => 'rating', :action => 'new', :restaurant_id => restaurant.id}) %></td>
+          </tr>
+        </td>
+      <% end %>
+    </table>
+  </div>
+<% else %>
+  <div class = 'small_main'>
+    <p> There aren't any restaurants with what you searched: <%= params[:search] %>!</p>
+  </div>
+  <div class = 'small_main'>
+    <h3><%= link_to("Be the first to add it!", {:controller => 'restaurant', :action => 'new'}) %></h3>
+<% end %>

@@ -4,15 +4,6 @@ class RestaurantController < ApplicationController
 
   before_action :confirm_logged_in
 
-  def search
-    @restaurants = Restaurant.all
-    if params[:search]
-      @restaurants = Restaurant.search(params[:search]).order('created_at DESC')
-    else
-      @restaurants = Restaurant.all.order('created_at DESC')
-    end
-  end
-
   def index
     @restaurants = Restaurant.sorted
     if params[:search]

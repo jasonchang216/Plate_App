@@ -9,7 +9,9 @@
   <p>Average rating: <%= render_stars(@restaurant.ratings.average('restaurant_rating'))%></p>
 </div>
 
-<
+<div class = 'main'>
+  <p><%= link_to('Add your review!', {:controller => 'rating', :action => 'new', :restaurant_id => @restaurant.id}) %></p>
+</div>
 
 <div class = 'data_table'>
   <table class = 'rating_table'>

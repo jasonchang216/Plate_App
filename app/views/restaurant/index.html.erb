@@ -7,14 +7,14 @@
 </div>
 
 <div class = 'small_main'>
-  <p>Find a restaurant. Enter the name, city, or neighborhood!</p>
+  <p>Find a restaurant. <p>
 </div>
 
 <div class = 'small_main'>
-    <%= form_tag(@restaurants_path, :method => 'get', id: 'search-form') do %>
-      <%= text_field_tag :search, params[:search], placeholder: 'Search Restaurant Name' %>
-      <%= submit_tag 'Search' %>
-    <% end %>
+  <%= form_tag(@restaurants_path, :method => 'get', id: 'search-form') do %>
+    <%= text_field_tag :search, params[:search], placeholder: 'Restaurant, City, or Neighborhood' %>
+    <%= submit_tag 'Search' %>
+  <% end %>
 </div>
 
 <% if @restaurants.present? %>
@@ -36,7 +36,7 @@
             <td><%= restaurant.neighborhood %></td>
           </tr>
           <tr>
-            <td colspan="2"><%= link_to('New Rating', {:controller => 'rating', :action => 'new', :restaurant_id => restaurant.id}) %></td>
+            <td colspan = '2'><%= link_to('New Rating', {:controller => 'rating', :action => 'new', :restaurant_id => restaurant.id}) %></td>
           </tr>
         </td>
       <% end %>

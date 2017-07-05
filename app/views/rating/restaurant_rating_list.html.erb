@@ -16,8 +16,6 @@
 <div class = 'data_table'>
   <table class = 'rating_table'>
     <% @ratings.each do |rating| %>
-    <tr>
-      <td>
         <table class = 'rating_row'>
           <tr>
             <td class = 'rating_user'><%= link_to(rating.user.username, {:action => 'user_rating_list', :user_id => rating.user_id}) %> - <%= rating.date_rated.to_time.strftime("%B %d") %></td>
@@ -34,8 +32,6 @@
             </tr>
           <% end %>
         </table>
-      </td>
-    </tr>
     <% end %>
   </table>
 </div>

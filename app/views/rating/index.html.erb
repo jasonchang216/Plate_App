@@ -3,35 +3,31 @@
 </div>
 
 <div class = 'data_table'>
-  <table class = 'rating_table'>
+  <table>
     <% @ratings.each do |rating| %>
-    <tr>
-      <td>
-        <table class = 'rating_row'>
+      <td class = 'rating_row'>
+        <tr>
+          <td colspan = '2'><%= link_to(rating.user.username, {:action => 'user_rating_list', :user_id => rating.user_id}) %> - <%= rating.date_rated.to_time.strftime("%B %d") %></td>
+        </tr>
+        <tr>
+          <td colspan = '2'><%= render_stars(rating.restaurant_rating) %></td>
+        </tr>
+        <tr>
+          <td class = 'rating_restaurant' rowspan = '2'><%= link_to(rating.restaurant.restaurant_name, {:action => 'restaurant_rating_list', :restaurant_id => rating.restaurant_id}) %></td>
+          <td><%= rating.restaurant.city %></td>
+        </tr>
+        <tr>
+          <td><%= rating.restaurant.neighborhood %></td>
+        </tr>
+        <tr>
+          <td colspan = '2'><%= rating.restaurant_comment %></td>
+        </tr>
+        <% if current_user == rating.user %>
           <tr>
-            <td class = 'rating_user' colspan = '2'><%= link_to(rating.user.username, {:action => 'user_rating_list', :user_id => rating.user_id}) %> - <%= rating.date_rated.to_time.strftime("%B %d") %></td>
+            <td colspan = '2'><%= link_to('Edit', {:action => 'edit', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %> - <%= link_to('Delete', {:action => 'delete', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %></td>
           </tr>
-          <tr>
-            <td colspan = '2'><%= render_stars(rating.restaurant_rating) %></td>
-          </tr>
-          <tr>
-            <td class = 'rating_restaurant' rowspan = '2'><%= link_to(rating.restaurant.restaurant_name, {:action => 'restaurant_rating_list', :restaurant_id => rating.restaurant_id}) %></td>
-            <td colspan = '1'><%= rating.restaurant.city %></td>
-          </tr>
-          <tr>
-            <td colspan = '1'><%= rating.restaurant.neighborhood %></td>
-          </tr>
-          <tr>
-            <td colspan = '2'><%= rating.restaurant_comment %></td>
-          </tr>
-          <% if current_user == rating.user %>
-            <tr>
-              <td colspan = '2'><%= link_to('Edit', {:action => 'edit', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %> - <%= link_to('Delete', {:action => 'delete', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %></td>
-            </tr>
-          <% end %>
-        </table>
+        <% end %>
       </td>
-    </tr>
     <% end %>
   </table>
 </div>

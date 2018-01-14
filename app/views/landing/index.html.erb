@@ -1,3 +1,25 @@
-<div class = 'main'>
+<div class = "landing">
+
   <h1>Welcome</h1>
-</div>
+
+  <table>
+    <tr>
+      <td>
+        <div>
+          <h2><%= link_to("Rate", {:controller => 'rating', :action => 'index'}, :class => "landing_link") %></h2>
+        </div>
+      </td>
+      <td>
+        <div>
+          <h2><%= link_to("Friend", {:controller => 'user', :action => 'index'}, :class => "landing_link") %></h2>
+        </div>
+      </td>
+      <td>
+        <div>
+          <h2><%= link_to("Explore", {:controller => 'restaurant', :action => 'index'}, :class => "landing_link") %></h2>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+<div>

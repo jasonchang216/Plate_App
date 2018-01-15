@@ -6,20 +6,42 @@
     <tr>
       <td>
         <div>
-          <h2><%= link_to("Rate", {:controller => 'rating', :action => 'index'}, :class => "landing_link") %></h2>
+          <%= link_to("Rate", {:controller => 'rating', :action => 'index'}, :class => "home_link") %>
         </div>
       </td>
       <td>
         <div>
-          <h2><%= link_to("Friend", {:controller => 'user', :action => 'index'}, :class => "landing_link") %></h2>
+          <%= link_to("Friends", {:controller => 'user', :action => 'index'}, :class => "home_link") %>
         </div>
       </td>
       <td>
         <div>
-          <h2><%= link_to("Explore", {:controller => 'restaurant', :action => 'index'}, :class => "landing_link") %></h2>
+          <%= link_to("Explore", {:controller => 'restaurant', :action => 'index'}, :class => "home_link") %>
         </div>
       </td>
     </tr>
   </table>
 
-<div>
+  <div class = 'feed_table'>
+    <% @ratings.each do |rating| %>
+      <div>
+        <table>
+          <td rowspan = '4' class = 'rating_restaurant'>
+            <%= link_to(rating.restaurant.restaurant_name, {:controller => 'restaurant', :action => 'restaurant_rating_list', :restaurant_id => rating.restaurant_id}, :class => 'landing_link') %>
+          </td>
+          <tr class = 'first_row'>
+            <td class = 'rating_stars'><%= render_stars(rating.restaurant_rating) %></td>
+          </tr>
+          <tr>
+            <td colspan = '2' class = 'rating_comment'><%= rating.restaurant_comment %></td>
+          </tr>
+          <tr class = 'last_row'>
+            <td class = 'rating_user'><%= link_to(rating.user.username, {:controller=> 'user', :action => 'user_rating_list', :user_id => rating.user_id}) %></td>
+            <td><%= rating.restaurant.city %></td>
+          </tr>
+        </table>
+      </div>
+    <% end %>
+  </div>
+
+</div>

@@ -1,35 +1,31 @@
-<div class = 'main'>
-  <h1>User List</h1>
-</div>
+<div class = "user">
 
-<div class = 'main'>
-<p>Below is a list of active users</p>
-</div>
-
-<div class = 'main'>
   <table>
     <tr>
-      <th class = 'column_header_left'>Username</th>
-      <th class = 'column_header_left'>Name</th>
-      <th class = 'column_header_left'>Email</th>
-      <th class = 'column_header_center' colspan="2">Actions</th>
-    </tr>
-    <% @users.each do |user| %>
-    <tr>
-      <td><%= link_to(user.username, {:controller => 'rating', :action => 'user_rating_list', :user_id => user.id}) %></td>
-      <td><%= user.name %></td>
-      <td><%= user.email %></td>
       <td>
-        <% if current_user == user %>
-          <%= link_to('Edit', {:action => 'edit', :user_id => user.id}) %>
-        <% end %>
+        <div>
+          <%= link_to("Rate", {:controller => 'rating', :action => 'index'}, :class => "home_link") %>
+        </div>
       </td>
       <td>
-        <% if current_user == user %>
-          <%= link_to('Delete', {:action => 'delete', :user_id => user.id}) %>
-        <% end %>
+        <div>
+          <%= link_to("Home", {:controller => 'landing', :action => 'index'}, :class => "home_link") %>
+        </div>
+      </td>
+      <td>
+        <div>
+          <%= link_to("Explore", {:controller => 'restaurant', :action => 'index'}, :class => "home_link") %>
+        </div>
       </td>
     </tr>
-    <% end %>
   </table>
+
+  <h1>Friends</h1>
+
+  <div class = "user_list_table">
+    <% @users.each do |user| %>
+      <h3><%= link_to(user.username, {:controller => 'rating', :action => 'user_rating_list', :user_id => user.id}, :class => 'landing_link') %></h3>
+    <% end %>
+  </div>
+
 </div>

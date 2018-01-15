@@ -5,5 +5,6 @@ class LandingController < ApplicationController
   before_action :confirm_logged_in
 
   def index
+    @ratings = Rating.sorted
   end
 end

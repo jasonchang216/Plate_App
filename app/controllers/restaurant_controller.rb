@@ -17,13 +17,14 @@ class RestaurantController < ApplicationController
     @restaurants = Restaurant.sorted
   end
 
-  def citylist
-    @restaurants = Restaurant.sorted
-    @city = @restaurants.map(&:city).flatten.uniq
+  def city_restaurant_list
+    @city = City.find(params[:city_id])
+    @restaurants = @city.restaurants.sorted
   end
 
   def new
     @restaurant = Restaurant.new
+    @city = City.find(params[:city_id])
   end
 
   def create
@@ -65,7 +66,7 @@ class RestaurantController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:restaurant_name, :city, :neighborhood)
+    params.require(:restaurant).permit(:restaurant_name, :city_id, :neighborhood)
   end
 
 end

@@ -1,5 +1,6 @@
 class Restaurant < ActiveRecord::Base
 
+    belongs_to :city
     has_many :ratings
     has_many :users, through: :ratings
 

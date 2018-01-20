@@ -1,0 +1,28 @@
+<table>
+  <tr>
+    <td>
+      <div>
+        <%= link_to("Rate", {:controller => 'rating', :action => 'index'}, :class => "home_link") %>
+      </div>
+    </td>
+    <td>
+      <div>
+        <%= link_to("Home", {:controller => 'landing', :action => 'index'}, :class => "home_link") %>
+      </div>
+    </td>
+    <td>
+      <div>
+        <%= link_to("Explore", {:controller => 'restaurant', :action => 'index'}, :class => "home_link") %>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<h2>Create City</h2>
+
+<div>
+  <%= form_for(:city, :url => {:action => 'create'}) do |f| %>
+  <%= render(:partial => 'formpartial', :locals => {:f => f}) %>
+  <%= submit_tag('Create City') %>
+  <% end %>
+</div>

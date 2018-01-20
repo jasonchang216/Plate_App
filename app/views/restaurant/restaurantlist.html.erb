@@ -1,0 +1,31 @@
+<table>
+  <tr>
+    <td>
+      <div>
+        <%= link_to("Rate", {:controller => 'rating', :action => 'index'}, :class => "home_link") %>
+      </div>
+    </td>
+    <td>
+      <div>
+        <%= link_to("Home", {:controller => 'landing', :action => 'index'}, :class => "home_link") %>
+      </div>
+    </td>
+    <td>
+      <div>
+        <%= link_to("Explore", {:controller => 'restaurant', :action => 'index'}, :class => "home_link") %>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<h1>Find a restaurant</h1>
+
+<div>
+  <h3><%= link_to("New Restaurant", {:controller => 'restaurant', :action => 'new'}) %></h3>
+</div>
+
+<div class = "user_list_table">
+  <% @restaurants.each do |restaurant| %>
+    <h3><%= link_to(restaurant.restaurant_name, {:controller => 'rating', :action => 'new', :restaurant_id => restaurant.id}, :class => 'landing_link') %></h3>
+  <% end %>
+</div>

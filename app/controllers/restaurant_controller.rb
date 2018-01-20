@@ -13,6 +13,15 @@ class RestaurantController < ApplicationController
     end
   end
 
+  def restaurantlist
+    @restaurants = Restaurant.sorted
+  end
+
+  def citylist
+    @restaurants = Restaurant.sorted
+    @city = @restaurants.map(&:city).flatten.uniq
+  end
+
   def new
     @restaurant = Restaurant.new
   end

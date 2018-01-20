@@ -26,7 +26,7 @@ class RatingController < ApplicationController
   def create
     @rating = Rating.new(rating_params)
     if @rating.save
-      redirect_to(:action => 'index')
+      redirect_to(:controller => 'landing', :action => 'index')
       flash[:notice] = "Your rating has been added!"
     else
       render('new')

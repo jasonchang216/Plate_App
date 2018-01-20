@@ -26,6 +26,6 @@
 
 <div class = "user_list_table">
   <% @restaurants.each do |restaurant| %>
-    <h3><%= link_to(restaurant.restaurant_name, {:controller => 'rating', :action => 'new', :city_id => @city.id}, :class => 'landing_link') %></h3>
+    <h3><%= link_to(restaurant.restaurant_name, {:controller => 'rating', :action => 'new', :restaurant_id => restaurant.id}, :class => 'landing_link') %></h3>
   <% end %>
 </div>

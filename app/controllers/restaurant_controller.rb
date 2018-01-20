@@ -30,7 +30,7 @@ class RestaurantController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
-      redirect_to(:action => 'index')
+      redirect_to(:controller => 'city', :action => 'index')
       flash[:notice] = "Restaurant added!"
     else
       render('new')

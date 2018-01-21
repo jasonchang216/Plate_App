@@ -6,6 +6,9 @@
     <td><%= f.hidden_field(:restaurant_id, :value => @restaurant.id) %></td>
   </tr>
   <tr>
+    <td><%= f.hidden_field(:city_id, :value => @city.id) %></td>
+  </tr>
+  <tr>
     <td class = 'field_label'><%= f.label(:date_rated, "Date") %></td>
     <td><%= f.date_select(:date_rated) %></td>
   </tr>

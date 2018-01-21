@@ -21,6 +21,7 @@ class RatingController < ApplicationController
   def new
     @rating = Rating.new
     @restaurant = Restaurant.find(params[:restaurant_id])
+    @city = City.find(params[:city_id])
   end
 
   def create
@@ -63,7 +64,7 @@ class RatingController < ApplicationController
 private
 
   def rating_params
-    params.require(:rating).permit(:id, :restaurant_rating, :date_rated, :restaurant_comment, :user_id, :restaurant_id)
+    params.require(:rating).permit(:id, :restaurant_rating, :date_rated, :restaurant_comment, :user_id, :restaurant_id, :city_id)
   end
 
 end

@@ -33,10 +33,11 @@
             <td class = 'rating_stars'><%= render_stars(rating.restaurant_rating) %></td>
           </tr>
           <tr>
-            <td class = 'rating_comment'><%= rating.restaurant_comment %></td>
+            <td colspan= '2' class = 'rating_comment'><%= rating.restaurant_comment %></td>
           </tr>
           <tr class = 'last_row'>
             <td class = 'rating_user'><%= link_to(rating.user.username, {:controller=> 'rating', :action => 'user_rating_list', :user_id => rating.user_id}) %></td>
+            <td><%= rating.city.city_name rescue " " %>
           </tr>
         </table>
       </div>

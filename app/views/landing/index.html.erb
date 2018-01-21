@@ -27,7 +27,7 @@
       <div>
         <table>
           <td rowspan = '4' class = 'rating_restaurant'>
-            <%= link_to(rating.restaurant.restaurant_name, {:controller => 'rating', :action => 'restaurant_rating_list', :restaurant_id => rating.restaurant_id}, :class => 'landing_link') %>
+            <%= link_to(rating.restaurant.restaurant_name rescue " ", {:controller => 'rating', :action => 'restaurant_rating_list', :restaurant_id => rating.restaurant_id}, :class => 'landing_link') %>
           </td>
           <tr class = 'first_row'>
             <td class = 'rating_stars'><%= render_stars(rating.restaurant_rating) %></td>

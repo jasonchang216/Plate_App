@@ -2,12 +2,12 @@
   <tr>
     <td>
       <div>
-        <%= link_to("Rate", {:controller => 'rating', :action => 'index'}, :class => "home_link") %>
+        <%= link_to("Home", {:controller => 'landing', :action => 'index'}, :class => "home_link") %>
       </div>
     </td>
     <td>
       <div>
-        <%= link_to("Home", {:controller => 'landing', :action => 'index'}, :class => "home_link") %>
+        <%= link_to("Friends", {:controller => 'user', :action => 'index'}, :class => "home_link") %>
       </div>
     </td>
     <td>
@@ -18,7 +18,7 @@
   </tr>
 </table>
 
-<h2>List of restaurants</h2>
+<h2>Select your restaurant</h2>
 
 <div>
   <h3><%= link_to("New Restaurant", {:controller => 'restaurant', :action => 'new', :city_id => @city.id}) %></h3>

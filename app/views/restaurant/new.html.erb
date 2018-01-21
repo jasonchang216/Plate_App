@@ -1,20 +1,41 @@
-<div class = 'main'>
-  <h1>New Restaurant</h1>
-</div>
+<table>
+  <tr>
+    <td>
+      <div>
+        <%= link_to("Home", {:controller => 'landing', :action => 'index'}, :class => "home_link") %>
+      </div>
+    </td>
+    <td>
+      <div>
+        <%= link_to("Friends", {:controller => 'user', :action => 'index'}, :class => "home_link") %>
+      </div>
+    </td>
+    <td>
+      <div>
+        <%= link_to("Explore", {:controller => 'restaurant', :action => 'index'}, :class => "home_link") %>
+      </div>
+    </td>
+  </tr>
+</table>
 
-<div class = 'main'>
-  <%= link_to("Back to Restaurants", {:controller => 'restaurant', :action => 'index'}) %>
-</div>
+<h2>Create Restaurant</h2>
 
-<div class = 'main'>
-  <p>Fill out this form to create a new restaurant</p>
-</div>
-
-<div class = 'main'>
+<div>
   <%= form_for(:restaurant, :url => {:action => 'create'}) do |f| %>
-  <%= render(:partial => 'formpartial', :locals => {:f => f}) %>
-  <div class= 'main'>
-    <%= submit_tag('Create Restaurant') %>
+
+  <table summary = "Restaurant form field">
+    <tr>
+      <td><%= f.hidden_field(:city_id, :value => @city.id) %></td>
+    </tr>
+    <tr>
+      <th><h3><%= f.label(:restaurant_name, "Restaurant Name") %></h3></th>
+        <td><%= f.text_field(:restaurant_name) %></td>
+    </tr>
+  </table>
+
+  <div>
+    <%= submit_tag('Create', :class => 'button') %>
   </div>
+
   <% end %>
 </div>

@@ -2,12 +2,12 @@
   <tr>
     <td>
       <div>
-        <%= link_to("Rate", {:controller => 'rating', :action => 'index'}, :class => "home_link") %>
+        <%= link_to("Home", {:controller => 'landing', :action => 'index'}, :class => "home_link") %>
       </div>
     </td>
     <td>
       <div>
-        <%= link_to("Home", {:controller => 'landing', :action => 'index'}, :class => "home_link") %>
+        <%= link_to("Friends", {:controller => 'user', :action => 'index'}, :class => "home_link") %>
       </div>
     </td>
     <td>
@@ -22,7 +22,15 @@
 
 <div>
   <%= form_for(:city, :url => {:action => 'create'}) do |f| %>
-  <%= render(:partial => 'formpartial', :locals => {:f => f}) %>
-  <%= submit_tag('Create City') %>
+  <table summary = "City form field">
+    <tr>
+      <th><h3><%= f.label(:city_name, "City Name") %></h3></th>
+        <td><%= f.text_field(:city_name) %></td>
+    </tr>
+  </table>
+
+  <div>
+    <%= submit_tag('Create', :class => 'button') %>
+  </div>
   <% end %>
 </div>

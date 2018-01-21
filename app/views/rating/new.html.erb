@@ -1,16 +1,32 @@
-<div class = 'main'>
-  <h1>New rating for <%= @restaurant.restaurant_name%></h1>
-</div>
+<table>
+  <tr>
+    <td>
+      <div>
+        <%= link_to("Home", {:controller => 'landing', :action => 'index'}, :class => "home_link") %>
+      </div>
+    </td>
+    <td>
+      <div>
+        <%= link_to("Friends", {:controller => 'user', :action => 'index'}, :class => "home_link") %>
+      </div>
+    </td>
+    <td>
+      <div>
+        <%= link_to("Explore", {:controller => 'restaurant', :action => 'index'}, :class => "home_link") %>
+      </div>
+    </td>
+  </tr>
+</table>
 
-<div class = 'main'>
+<h2>New rating for <%= @restaurant.restaurant_name%></h2>
+
+<div>
   <%= form_for(:rating, :url => {:action => 'create'}) do |f| %>
   <%= render(:partial => 'formpartial', :locals => {:f => f}) %>
-  <div class= 'main'>
-    <%= submit_tag('Create Rating') %>
-  </div>
-  <% end %>
-</div>
 
-<div class = 'main'>
-  <%= link_to("Back to Restaurants", {:controller => 'restaurant', :action => 'index'}) %>
+  <div>
+    <%= submit_tag('Create', :class => 'button') %>
+  </div>
+
+  <% end %>
 </div>

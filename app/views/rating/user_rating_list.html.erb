@@ -1,41 +1,53 @@
-<div>
-  <h2>Ratings created by</h2>
-</div>
+<div class = 'landing'>
 
-<div>
-  <h2><%= @user.username%></h2>
-</div>
-
-<div class = 'main'>
-  <p>Average rating given: <%= render_stars(@user.ratings.average('restaurant_rating'))%></p>
-</div>
-
-<div class = 'data_table'>
-  <table class = 'rating_table'>
-    <% @ratings.each do |rating| %>
-      <table class = 'rating_row'>
-        <tr>
-          <td class = 'rating_user' colspan = '2'><%= rating.date_rated.to_time.strftime("%B %d") %></td>
-        </tr>
-        <tr>
-          <td colspan = '2'><%= render_stars(rating.restaurant_rating)%></td>
-        </tr>
-        <tr>
-          <td class = 'rating_restaurant' rowspan = '2'><%= link_to(rating.restaurant.restaurant_name, {:action => 'restaurant_rating_list', :restaurant_id => rating.restaurant_id}) %></td>
-          <td><%= rating.restaurant.city %></td>
-        </tr>
-        <tr>
-          <td><%= rating.restaurant.neighborhood %></td>
-        </tr>
-        <tr>
-          <td colspan = '2'><%= rating.restaurant_comment %></td>
-        </tr>
-        <% if current_user == rating.user %>
-          <tr>
-            <td><%= link_to('Edit', {:action => 'edit', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %> - <%= link_to('Delete', {:action => 'delete', :rating_id => rating.id, :restaurant_id => rating.restaurant_id}) %></td>
-          </tr>
-        <% end %>
-      </table>
-    <% end %>
+  <table>
+    <tr>
+      <td>
+        <div>
+          <%= link_to("Home", {:controller => 'landing', :action => 'index'}, :class => "home_link") %>
+        </div>
+      </td>
+      <td>
+        <div>
+          <%= link_to("Rate", {:controller => 'city', :action => 'index'}, :class => "home_link") %>
+        </div>
+      </td>
+      <td>
+        <div>
+          <%= link_to("Friends", {:controller => 'user', :action => 'index'}, :class => "home_link") %>
+        </div>
+      </td>
+      <td>
+        <div>
+          <%= link_to("Explore", {:controller => 'restaurant', :action => 'index'}, :class => "home_link") %>
+        </div>
+      </td>
+    </tr>
   </table>
+
+  <h2>Ratings by <%= @user.username%></h2>
+
+  <h3>Average rating given: <%= render_stars(@user.ratings.average('restaurant_rating'))%></h3>
+
+  <div class = 'feed_table'>
+      <% @ratings.each do |rating| %>
+        <div>
+          <table>
+            <td rowspan = '4' class = 'rating_restaurant'>
+              <%= link_to(rating.restaurant.restaurant_name, {:action => 'restaurant_rating_list', :restaurant_id => rating.restaurant_id}, :class => 'landing_link') %>
+            </td>
+            <tr class = 'first_row'>
+              <td colspan = '1'class = 'rating_stars'><%= render_stars(rating.restaurant_rating) %></td>
+            </tr>
+            <tr>
+              <td colspan = '1' class = 'rating_comment'><%= rating.restaurant_comment %></td>
+            </tr>
+              <td colspan = '1'><%= rating.city.city_name rescue " " %> - <%= rating.date_rated.to_time.strftime("%B %d") %> </td>
+            <tr>
+            </tr>
+          </table>
+        </div>
+      <% end %>
+  </div>
+
 </div>

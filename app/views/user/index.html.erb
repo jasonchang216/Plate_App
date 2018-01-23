@@ -4,12 +4,17 @@
     <tr>
       <td>
         <div>
-          <%= link_to("Rate", {:controller => 'rating', :action => 'index'}, :class => "home_link") %>
+          <%= link_to("Home", {:controller => 'landing', :action => 'index'}, :class => "home_link") %>
         </div>
       </td>
       <td>
         <div>
-          <%= link_to("Home", {:controller => 'landing', :action => 'index'}, :class => "home_link") %>
+          <%= link_to("Rate", {:controller => 'city', :action => 'index'}, :class => "home_link") %>
+        </div>
+      </td>
+      <td>
+        <div>
+          <%= link_to("Friends", {:controller => 'user', :action => 'index'}, :class => "home_link") %>
         </div>
       </td>
       <td>
@@ -24,7 +29,7 @@
 
   <div class = "user_list_table">
     <% @users.each do |user| %>
-      <h3><%= link_to(user.username, {:controller => 'rating', :action => 'new', :user_id => user.id}, :class => 'landing_link') %></h3>
+      <h3><%= link_to(user.username, {:controller => 'rating', :action => 'user_rating_list', :user_id => user.id}, :class => 'landing_link') %></h3>
     <% end %>
   </div>
 

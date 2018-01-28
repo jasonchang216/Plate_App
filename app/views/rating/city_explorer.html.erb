@@ -25,11 +25,20 @@
     </tr>
   </table>
 
-  <h1>Friends</h1>
+  <h1>Explore by city</h1>
 
-  <div class = "user_list_table">
-    <% @users.each do |user| %>
-      <h3><%= link_to(user.username, {:controller => 'rating', :action => 'user_rating_list', :user_id => user.id}, :class => 'landing_link') %></h3>
+  <div class = 'user_list_table'>
+    <% @city.each do |city| %>
+      <div class = 'city_explorer'>
+        <tr>
+          <%= link_to(city.city_name, {:controller => 'restaurant', :action => 'city_restaurant_list', :city_id => city.id}) %>
+        </tr>
+        <tr>
+          <div class = 'star_rating'>
+            <%= render_stars(city.ratings.average('restaurant_rating'))%>
+          </div>
+        </tr>
+      </div>
     <% end %>
   </div>
 

@@ -18,6 +18,10 @@ class RatingController < ApplicationController
     @ratings = @user.ratings.sorted
   end
 
+  def city_explorer
+    @city = City.sorted
+  end
+
   def new
     @rating = Rating.new
     @restaurant = Restaurant.find(params[:restaurant_id])

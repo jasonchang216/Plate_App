@@ -11,6 +11,7 @@ class RatingController < ApplicationController
   def restaurant_rating_list
     @restaurant = Restaurant.find(params[:restaurant_id])
     @ratings = @restaurant.ratings.sorted
+    @city = City.find(params[:city_id])
   end
 
   def user_rating_list
@@ -20,6 +21,11 @@ class RatingController < ApplicationController
 
   def city_explorer
     @city = City.sorted
+  end
+
+  def restaurant_explorer
+    @city = City.find(params[:city_id])
+    @restaurants = @city.restaurants.sorted
   end
 
   def new

@@ -28,12 +28,12 @@
   <h1>Explore by city</h1>
 
   <div class = 'user_list_table'>
-    <% @city.each do |city| %>
+    <% @restaurants.each do |restaurant| %>
       <div>
         <tr>
-          <%= link_to({:controller => 'rating', :action => 'restaurant_explorer', :city_id => city.id}, :class => 'landing_link') do%>
-            <h3><%= city.city_name %></h3>
-            <div class = 'star_rating'><%= render_stars(city.ratings.average('restaurant_rating'))%></div>
+          <%= link_to({:controller => 'rating', :action => 'restaurant_rating_list', :restaurant_id => restaurant.id, :city_id => @city.id}, :class => 'landing_link') do %>
+            <h3><%= restaurant.restaurant_name %></h3>
+            <div class = 'star_rating'><%= render_stars(restaurant.ratings.average('restaurant_rating'))%></div>
           <% end %>
         </tr>
       </div>

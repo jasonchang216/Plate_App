@@ -25,10 +25,11 @@
     </tr>
   </table>
 
-  <h2>Ratings for <%= @restaurant.restaurant_name %></h2>
-  <h2><%= rating.city.city_name rescue " " %></h2>
+  <h2>Ratings for <%= @restaurant.restaurant_name %> - <%= render_stars(@restaurant.ratings.average('restaurant_rating'))%></h2>
 
-  <h3>Average rating: <%= render_stars(@restaurant.ratings.average('restaurant_rating'))%></h3>
+  <div>
+    <%= link_to("Rate This", {:controller => 'rating', :action => 'new', :restaurant_id => @restaurant.id, :city_id => @city.id}, :class => "home_link") %>
+  </div>
 
   <div class = 'feed_table'>
       <% @ratings.each do |rating| %>

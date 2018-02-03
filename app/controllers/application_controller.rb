@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
 
     private
 
+    def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    @current_user
+    end
+    helper_method :current_user
+
     def confirm_logged_in
       unless session[:user_id]
         redirect_to(:controller => 'access', :action => 'login')

@@ -24,7 +24,6 @@ module Merit
 
       grant_on 'restaurant#create', badge: 'Founder'
 
-      grant_on 'rating#create', badge: 'Rater'
 
       # If it creates user, grant badge
       # Should be "current_user" after registration for badge to be granted.

@@ -25,29 +25,41 @@
     </tr>
   </table>
 
-  <h2>Ratings by <%= @user.username%></h2>
+  <h2>Ratings by <%= @user.username %></h2>
 
   <h3>Average rating given: <%= render_stars(@user.ratings.average('restaurant_rating'))%></h3>
 
-  <div class = 'feed_table'>
-      <% @ratings.each do |rating| %>
-        <div>
-          <table>
-            <td rowspan = '4' class = 'rating_restaurant'>
-              <%= link_to(rating.restaurant.restaurant_name, {:action => 'restaurant_rating_list', :restaurant_id => rating.restaurant_id}, :class => 'landing_link') %>
-            </td>
-            <tr class = 'first_row'>
-              <td colspan = '1'class = 'rating_stars'><%= render_stars(rating.restaurant_rating) %></td>
-            </tr>
-            <tr>
-              <td colspan = '1' class = 'rating_comment'><%= rating.restaurant_comment %></td>
-            </tr>
-              <td colspan = '1'><%= rating.city.city_name rescue " " %> - <%= rating.date_rated.to_time.strftime("%B %d") %> </td>
-            <tr>
-            </tr>
-          </table>
-        </div>
-      <% end %>
+  <div class = 'two_column_body'>
+    <div class = 'feed_table'>
+        <% @ratings.each do |rating| %>
+          <div>
+            <table>
+              <td rowspan = '4' class = 'rating_restaurant'>
+                <%= link_to(rating.restaurant.restaurant_name, {:action => 'restaurant_rating_list', :restaurant_id => rating.restaurant_id}, :class => 'landing_link') %>
+              </td>
+              <tr class = 'first_row'>
+                <td colspan = '1'class = 'rating_stars'><%= render_stars(rating.restaurant_rating) %></td>
+              </tr>
+              <tr>
+                <td colspan = '1' class = 'rating_comment'><%= rating.restaurant_comment %></td>
+              </tr>
+                <td colspan = '1'><%= rating.city.city_name rescue " " %> - <%= rating.date_rated.to_time.strftime("%B %d") %> </td>
+              <tr>
+              </tr>
+            </table>
+          </div>
+        <% end %>
+    </div>
+    <div class = 'badge_table'>
+      <h3>Points: <%= @user.points %></h3>
+      <table>
+        <% @user.badges.each do |badge| %>
+          <tr class = 'first_row'>
+            <%= badge.name %>
+          </tr>
+        <% end %>
+      </table>
+    </div>
   </div>
 
 </div>

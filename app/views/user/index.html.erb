@@ -30,7 +30,6 @@
   <div class = "user_list_table">
     <% @users.each do |user| %>
       <h3><%= link_to(user.username, {:controller => 'rating', :action => 'user_rating_list', :user_id => user.id}, :class => 'landing_link') %></h3>
-      <h3><% user.badges.each do |badge| %><%= badge.name %><% end %></h3>
     <% end %>
   </div>
 

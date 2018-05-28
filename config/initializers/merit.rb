@@ -16,19 +16,25 @@ Merit.setup do |config|
   # Define :current_user_method. Similar to previous option. It will be used
   # to retrieve :user_model_name object if no `:to` option is given. Default
   # is "current_#{user_model_name.downcase}".
-  config.current_user_method = 'User'
+  config.current_user_method = 'current_user'
 end
 
 Merit::Badge.create!(
   id: 1,
-  name: 'Founder',
-  description: 'Created a restaurant'
+  name: 'Rater',
+  description: 'Rated a restaurant'
 )
 
 Merit::Badge.create!(
   id: 2,
-  name: 'Rater',
+  name: 'Appertif',
   description: 'First 100 users!'
+)
+
+Merit::Badge.create!(
+  id: 3,
+  name: 'Founder',
+  description: 'Created a restaurant'
 )
 
 # Create application badges (uses https://github.com/norman/ambry)

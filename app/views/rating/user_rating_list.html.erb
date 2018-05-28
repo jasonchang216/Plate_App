@@ -52,10 +52,11 @@
     </div>
     <div class = 'badge_table'>
       <h3>Points: <%= @user.points %></h3>
+      <h3>Level: <%= @user.level %></h3>
       <table>
         <% @user.badges.each do |badge| %>
           <tr class = 'first_row'>
-            <%= badge.name %>
+            <div class = 'landing_link'><%= badge.name %></div>
           </tr>
         <% end %>
       </table>

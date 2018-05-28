@@ -23,6 +23,7 @@ module Merit
     def initialize
 
       grant_on 'restaurant#create', badge: 'Founder'
+      # grant_on 'user#create', badge: 'Appertif'
 
 
       # If it creates user, grant badge
